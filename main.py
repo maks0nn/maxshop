@@ -14,6 +14,8 @@ STATIC_DIR = os.path.abspath('../static')
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
+
+
 @app.route('/add_product/', methods=['POST'])
 def add_product():
     if request.method == "POST":
@@ -53,7 +55,7 @@ def register():
             print(request.form["password"])
 
             connection.add_user(name, email, psw)
-            return redirect('/login')
+            return redirect(url_for('login'))
         else:
             print("Такой пользователь уже существует")
     return render_template("register.html", title="Register")
@@ -65,11 +67,10 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
         session['email'] = email
+        if (email == "admin@gmail.com") and (password == "admin"):
+            return redirect(url_for('admin'))
         if connection.login_user(email, password):
-            # render_template("shop.html")
-            if (email == "admin@gmail.com") and (password == "admin"):
-                return redirect('/admin')
-        return redirect('/shop')
+            return redirect(url_for('shop'))
     return render_template("login.html", title="Login")
 
 
