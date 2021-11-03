@@ -12,6 +12,7 @@ STATIC_DIR = os.path.abspath('../static')
 
 # static_path = os.path.join(project_root, '../client/static')
 app = Flask(__name__)
+app.secret_key = "super secret key"
 app.url_map.strict_slashes = False
 
 
