@@ -53,7 +53,7 @@ def register():
             print(request.form["password"])
 
             connection.add_user(name, email, psw)
-            return redirect('http://127.0.0.1:5000/login')
+            return redirect('/login')
         else:
             print("Такой пользователь уже существует")
     return render_template("register.html", title="Register")
@@ -68,8 +68,8 @@ def login():
         if connection.login_user(email, password):
             # render_template("shop.html")
             if (email == "admin@gmail.com") and (password == "admin"):
-                return redirect('http://127.0.0.1:5000/admin')
-        return redirect('http://127.0.0.1:5000/shop')
+                return redirect('http://alpha.batin.space:5000/admin')
+        return redirect('http://alpha.batin.space:5000/shop')
     return render_template("login.html", title="Login")
 
 
@@ -94,14 +94,14 @@ def add_product_to_busket():
 def delete_user():
     if request.method == "POST":
         connection.delete_user(request.form['id'])
-    return redirect('http://127.0.0.1:5000/admin')
+    return redirect('http://alpha.batin.space:5000/admin')
 
 
 @app.route('/delete_product/', methods=['POST'])
 def delete_product():
     if request.method == "POST":
         connection.delete_product(request.form['idproduct'])
-    return redirect('http://127.0.0.1:5000/admin')
+    return redirect('http://alpha.batin.space:5000/admin')
 
 
 @app.route('/delete_product_from_busket/', methods=['POST'])
@@ -141,7 +141,7 @@ def admin():
 
 @app.route("/")
 def index():
-    return "hello world"
+    return render_template("register.html")
 
 
 if __name__ == "__main__":
