@@ -2,10 +2,11 @@ import psycopg2
 from werkzeug.security import generate_password_hash
 
 connection = psycopg2.connect(
-    host="localhost",
-    database="shop",
-    user="postgres",
-    password="root"
+host="localhost",
+database="psadmin",
+user="psadmin",
+password="psadmin",
+port="49153"
 )
 
 
