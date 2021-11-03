@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylebusket.css')}}">
+
+    <title>Baseket</title>
+</head>
+<body>
+
+  <div class="shopping-cart">
+        <!-- Title -->
+        <div class="title">
+          Shopping Bag
+        </div>
+      <h2>Баланс = {{balans}}</h2>
+
+        <tr>
+            <th>name</th>
+            <th>prise</th>
+            <th>buy/delete</th>
+
+        </tr>
+    <form method="POST">
+
+            {% for product in products %}
+        <tr>
+            <div class="goods-min-cart">
+
+                <tr>
+                <td>{{product[0][1]}}</td
+                <td>{{product[0][2]}}</td>
+                <td><button name="buy" formaction="/buy/" value="{{product[0][0]}}">Купить</button></td><button name="delete" formaction="/delete_product_from_busket/" value="{{product[0][0]}}">Удалить из корзины</button>
+
+
+
+                </tr>
+
+
+                <br>
+
+                <br>
+            </div>
+        </tr>
+        </tr>
+        {% endfor %}
+        </form>
+      <form>
+          <center><button formaction="/shop/">К товарам</button></center>
+      </form>
+      </div>
+</body>

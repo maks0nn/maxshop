@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleshop.css')}}">
+
+    <title>Shop</title>
+</head>
+
+<body>
+
+<br>
+<br><br>
+
+<h1 class="site-title">CORSA.AIAMI</h1><br><br><br><br>
+
+
+<div class="footer">
+    <form action="/add_cash/" method="post">
+        <div class="header">
+            <div class="wrap">
+            </div>
+            <div class="cost">
+            <h2>Баланс = {{balans}}</h2>
+                <label>cash:</label>
+                <input type="text" name="cash">
+                <button name="addCash" type="submit">Добавить денежку</button>
+            </div>
+        </div>
+    </form>
+    <form action="/add_product_to_busket/" method="post">
+        {% for product in products %}
+        <tr>
+            <div class="goods-min-cart">
+                <td>{{product[0]}}</td>
+                <br>
+                <td>{{product[1]}}</td>
+                <br>
+                <td>{{product[2]}}</td>
+                <p>rub</p>
+                <button class="button" type = 'submit' name="product_id" value="{{product[0]}}">Добавить в корзину</button>
+                <br>
+                <br>
+            </div>
+        </tr>
+        {% endfor %}
+        <br>
+        <br>
+    </form>
+    <form action="/busket">
+        <center><button>Перейти в корзину</button></center>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleadmin.css')}}">
+
+    <title>Shop</title>
+</head>
+
+<body>
+
+
+<h1 class="site-title">CORSA.AIAMI(admin)</h1>
+<div class="main">
+    <table>
+        <h2>Clothes</h2>
+
+    <tr>
+            <th>id</th>
+            <th>namecol</th>
+            <th>prise</th>
+            <th>quantity</th>
+
+        </tr>
+    {% for product in products %}
+    <tr>
+        <td>{{product[0]}}</td>
+        <td>{{product[1]}}</td>
+        <td>{{product[2]}}</td>
+        <td>{{product[3]}}</td>
+        <td>{{product[4]}}</td>
+
+        <br>
+    </tr>
+    {% endfor %}
+
+    <br>
+    </table>
+
+    <form action="/delete_product/" method="post">
+
+        <input type="text" name="idproduct" placeholder="id для удаления">
+        <button name="delete_product" type="submit">удалить</button>
+    </form>
+    <br>
+
+
+        <h2>Users</h2>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>password</th>
+            <th>cash</th>
+        </tr>
+        <table>
+
+        {% for user in users %}
+        <tr>
+            <td>{{user[0]}}</td>
+            <td>{{user[1]}}</td>
+            <td>{{user[2]}}</td>
+            <td>{{user[3]}}</td>
+            <td>{{user[4]}}</td>
+
+        </tr>
+
+
+        {% endfor %}
+    </table>
+
+
+    <form action="/delete_user/" method="post">
+
+        <input type=text name="id" placeholder="id для удаления">
+        <button name="delete_user" type="submit">удалить</button>
+
+    </form>
+    <form action="/add_user/" method="post">
+        <h1 title="Регистрация">Создать пользователя</h1>
+
+        <div >
+            <label >Имя пользователя</label>
+            <input type="text" name ="name">
+        </div>
+
+        <div >
+            <label >Адресс электроной почты</label>
+            <input type="text"  name ="email">
+        </div>
+
+        <div >
+            <label >Пароль</label>
+            <input type="text" name="password">
+        </div>
+
+        <div class="group">
+            <label >Пароль еще раз</label>
+            <input type="text" name="repeat_password">
+        </div>
+        <div class="group">
+            <center><button>Добавить</button></center>
+        </div>
+    </form>
+<form action="/add_product/" method="post">
+        <h1 title="Регистрация">Создать товар</h1>
+
+        <div >
+            <label >Название товара</label>
+            <input type="text" name ="name">
+        </div>
+
+        <div >
+            <label >Цена</label>
+            <input type="text" name ="price">
+        </div>
+
+        <div class="group">
+            <center><button>Добавить</button></center>
+        </div>
+    </form>
+
+<div class="footer">
+    <form action="/login">
+            <center><button>Выход</button></center>
+    </form>
+</div>
+
+
+</div>
+
+</body>
+</html>

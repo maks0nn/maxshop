@@ -1,0 +1,80 @@
+body{
+    background:black;
+    background-image: url(fon.jpg) ;
+    background-size: cover;
+    font-family: sans-serif;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+h1{
+    margin: 0;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom: 3px;
+}
+form{
+    margin: 0 auto;
+    border-radius: 25px/25px;
+    background:rgba(75, 75, 75, 0.3);
+    width: 450px;
+    height: 300px;
+    padding: 120px;
+
+
+}
+.group{
+    margin: 15px;
+    padding: 5px;
+
+}
+label{
+    padding-left: 10px;
+    text-transform: uppercase;
+
+
+}
+input{
+    margin-top: 10px;
+    height: 35px;
+    width: 450px;
+    border-radius: 25px/25px;
+    border: none;
+
+    padding-left: 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+
+}
+input:focus{
+    border: 2px solid rgba(19, 172, 57, 0.3);
+    transform: translateX(15px);
+    width: 385px;
+
+
+}
+button{
+    cursor: pointer;
+    padding: 15px 30px;
+    width: 200px;
+    height: 25px;
+    background-color: rgba(167, 11, 11, 0.205);
+    border: none ;
+    border-radius: 10px;
+}
+button:hover{
+    opacity: .80;
+    transform: scale(.9);
+
+}
+a{
+    padding: 20px 22px;
+    color:rgba(11, 167, 128, 0.856);
+    text-decoration: none;
+    font-family: Verdana;
+    border-radius: 25px;
+
+}
+
+
+
+
+
