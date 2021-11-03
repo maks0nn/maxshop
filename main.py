@@ -66,7 +66,7 @@ def login():
         password = request.form["password"]
         session['email'] = email
         if connection.login_user(email, password):
-            # render_template("shop.html")
+            render_template("shop.html")
             if (email == "admin@gmail.com") and (password == "admin"):
                 return redirect('/admin')
         return redirect('/shop')
