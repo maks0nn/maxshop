@@ -68,8 +68,8 @@ def login():
         if connection.login_user(email, password):
             # render_template("shop.html")
             if (email == "admin@gmail.com") and (password == "admin"):
-                return redirect('http://alpha.batin.space:5000/admin')
-        return redirect('http://alpha.batin.space:5000/shop')
+                return redirect('/admin')
+        return redirect('/shop')
     return render_template("login.html", title="Login")
 
 
@@ -94,7 +94,7 @@ def add_product_to_busket():
 def delete_user():
     if request.method == "POST":
         connection.delete_user(request.form['id'])
-    return redirect('http://alpha.batin.space:5000/admin')
+    return redirect('/admin')
 
 
 @app.route('/delete_product/', methods=['POST'])
