@@ -18,7 +18,7 @@ app.url_map.strict_slashes = False
 def add_product():
     if request.method == "POST":
         connection.add_product(request.form['name'], request.form['price'])
-    return redirect('http://127.0.0.1:5000/admin')
+    return redirect('/admin')
 
 
 @app.route('/add_user/', methods=["POST", "GET"])
@@ -53,7 +53,7 @@ def register():
             print(request.form["password"])
 
             connection.add_user(name, email, psw)
-            return redirect('http://127.0.0.1:5000/login')
+            return redirect('/login')
         else:
             print("Такой пользователь уже существует")
     return render_template("register.html", title="Register")
@@ -66,9 +66,9 @@ def login():
         password = request.form["password"]
         session['email'] = email
         if (email == "admin@gmail.com") and (password == "admin"):
-            return redirect('http://127.0.0.1:5000/admin')
+            return redirect('/admin')
         if connection.login_user(email, password):
-            return redirect('http://127.0.0.1:5000/shop')
+            return redirect('/shop')
     return render_template("login.html", title="Login")
 
 
@@ -93,14 +93,14 @@ def add_product_to_busket():
 def delete_user():
     if request.method == "POST":
         connection.delete_user(request.form['id'])
-    return redirect('http://127.0.0.1:5000/admin')
+    return redirect('/admin')
 
 
 @app.route('/delete_product/', methods=['POST'])
 def delete_product():
     if request.method == "POST":
         connection.delete_product(request.form['idproduct'])
-    return redirect('http://127.0.0.1:5000/admin')
+    return redirect('/admin')
 
 
 @app.route('/delete_product_from_busket/', methods=['POST'])
