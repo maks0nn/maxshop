@@ -6,40 +6,39 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleregistration.css')}}">
 </head>
 <body>
-    <form method="post">
-        <h1 title="Регистрация">Регистрация</h1>
-        
-        <div >
-            <label >Имя пользователя</label>
-            <input type="text" name ="name">
-        </div>
-       
-        <div >
-            <label >Адресс электроной почты</label>
-            <input type="text"  name ="email">
-        </div>
-        
-        <div >
-            <label >Пароль</label>
-            <input type="text" name="password">
-        </div>
-        
-        <div class="group">
-            <label >Пароль еще раз</label>
-            <input type="text" name="repeat_password">
-        </div>
-        <div class="group">
-            <center><button>Регистрация</button></center>
-        </div>
-        <div class="group">
-            <a class="click-me" href="/Users/maksimmaiornikov/PycharmProjects/pythonProject1/templates/login.html">Вход в учетную запись</a>
-        
-        </div>
-    </form>
+<form method="post">
+    <h1 title="Регистрация">Регистрация</h1>
+
+    <div>
+        <label>Имя пользователя</label>
+        <input type="text" name="name">
+    </div>
+
+    <div>
+        <label>Адресс электронойф почты</label>
+        <input type="text" name="email">
+    </div>
+
+    <div>
+        <label>Пароль</label>
+        <input type="text" name="password">
+    </div>
+
+    <div class="group">
+        <label>Пароль еще раз</label>
+        <input type="text" name="repeat_password">
+    </div>
+    <div class="group">
+        <center>
+            <button>Регистрация</button>
+        </center>
+    </div>
+    <div class="group">
+        <a class="click-me" href="/login">Вход в учетную запись</a>
+
+    </div>
+</form>
 
 
-
-
-   
 </body>
 </html>
